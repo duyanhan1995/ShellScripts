@@ -2,6 +2,7 @@
 
 read -p "请输入原始用户名: " oldName
 read -p "请输入新的用户名: " newName
+echo ""
 echo "即将使用新用户名：${newName}，更替旧用户名：${oldName}"
 # 要修改的文件，它们的名称构成的数组
 
@@ -28,5 +29,6 @@ do
 	rm -rf /etc/${file}.bak.temp
 done
 mv /home/${oldName} /home/${newName}
+echo "更新用户主目录/home/${oldName}——>/home/${newName}"
 echo ""
 echo "用户名修改完毕！"
