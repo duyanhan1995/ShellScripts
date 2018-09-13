@@ -34,3 +34,10 @@ wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/changeUs
 ```
 wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/uninstallOriginalJDK.sh&&chmod 755 uninstallOriginalJDK.sh&&./uninstallOriginalJDK.sh
 ```
+
+## CentOS 7  安装新的JDK
+**简单说明**
+- 安装新的JDK，提供版本选择
+```
+wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/installNewJDK.sh&&chmod 755 installNewJDK.sh&&./installNewJDK.sh
+```
