@@ -27,3 +27,10 @@ wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/nginx.sh
 ```
 wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/changeUserName.sh&&chmod 755 changeUserName.sh&&./changeUserName.sh
 ```
+
+## CentOS 7  卸载原始自带的JDK
+**简单说明**
+- 卸载自带的opendJDK
+```
+wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/uninstallOriginalJDK.sh&&chmod 755 uninstallOriginalJDK.sh&&./uninstallOriginalJDK.sh
+```
