@@ -107,18 +107,48 @@ function getSubDir() {
 }
 
 
+
+function updateEnv() {
+
+	echo "开始配置环境变量，请稍等..."
+	file="/etc/profile"
+	chmod u+w ${file}
+	echo "" >> ${file}
+	echo "#set java environment" >> ${file}
+	echo "" >> ${file}
+	echo "JAVA_HOME=${1}" >> ${file}
+	echo "JRE_HOME=${2}" >> ${file}
+	echo "CLASS_PATH=${3}" >> ${file}
+	echo "PATH=${4}" >> ${file}
+	echo "export JAVA_HOME JRE_HOME CLASS_PATH PATH" >> ${file}
+	sleep 1s
+	echo "配置完毕！"
+	/usr/bin/source /etc/profile
+	sleep 0.5s
+	echo "环境变量配置已经生效..."
+	# 恢复环境变量配置文件原有权限
+	chmod 644 ${file}
+	echo 
+	echo "安装完成，当前java版本为"
+	java -version
+}
+
 myJAVA_HOME=""
+myJRE_HOME=""
+myClASS_PATH=""
+myPATH=""
 myJAVA_BIN=""
+myJAVA_LIB=""
 function unzip {
 	# 开始解压文件
-	read -p "不自定义安装目录？(y/n): " answer
+	read -p "要安装在当前目录吗？(y/n): " answer
 	echo
 	if [[ "${answer}" == "y" || "${answer}" == "Y" ]]
 	then
 		mkdir -p java
 		echo "开始解压，请稍等..."
 		# 默认安装在当前目录
-		tar -zxvf ${versionFileName[${select}]} -C ./java
+		tar -zxf ${versionFileName[${select}]} -C ./java
 		echo "解压完毕！"
 		# 获取核心目录
 		getSubDir java
@@ -129,33 +159,42 @@ function unzip {
 		# 切入java目录
 		cd java
 		myJAVA_HOME="$(pwd)"
-		myJAVA_BIN="${myJAVA_HOME}/bin"
-		echo ${myJAVA_HOME}
-		echo ${myJAVA_BIN}
 	elif [[ "${answer}" == "n" || "${answer}" == "N" ]]
 	then
 		read -p "请输入自定义安装路径：" customPath
 		echo "开始创建目录"
 		mkdir -p ${customPath}
 		echo "开始解压，请稍等..."
-		tar -zxvf ${versionFileName[${select}]} -C ${customPath}
+		tar -zxf ${versionFileName[${select}]} -C ${customPath}
 		echo "解压完毕！"
+		# 获取当前目录
+		currentPath=$(pwd)
 		# 获取核心目录
 		getSubDir ${customPath}
-		# 记录当前目录
-		currentPath=$(pwd)
 		cd ${customPath}/${destDir}
 		cp -r * ${customPath}
 		rm -rf ${customPath}/${destDir}
 		myJAVA_HOME="${customPath}"
-		myJAVA_BIN="${customPath}/bin"
+		# 返回实际存在的目录
 		cd ${currentPath}
-		echo ${myJAVA_HOME}
-		echo ${myJAVA_BIN}
 	fi
 
+	myJAVA_BIN="${myJAVA_HOME}/bin"
+	myJRE_HOME="${myJAVA_HOME}/jre"
+	myJAVA_LIB="${myJAVA_HOME}/lib"
+	myClASS_PATH=".:${myJAVA_LIB}/dt.jar:${myJAVA_LIB}/tools.jar:${myJAVA_LIB}"
+	myPATH="${PATH}:${myJAVA_BIN}:${myJRE_HOME}"
+
+	sleep 1s
+	# 配置环境变量
+	updateEnv ${myJAVA_HOME} ${myJRE_HOME} ${myClASS_PATH} ${myPATH} 
 }
 
 printMenu
 download
 unzip
+
+sleep 0.5s
+echo "脚本退出！"
+# 删除脚本自身
+rm -rf ${0}
