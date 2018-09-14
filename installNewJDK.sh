@@ -1,15 +1,17 @@
 #!/bin/bash
-file=JDKLinks
+
+jdkFile=JDKLinks
 # 先在本地查找JDKLinks文件
-if [ -f "${file}" ]
+if [ -f "${jdkFile}" ]
 then
 	# 若存在则删除
-	rm -rf ${file}
+	rm -rf ${jdkFile}
 fi
 # 若不存在则下载
-wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/${file}
+wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/${jdkFile}
+echo "jdk版本链接依赖文件下载完成..."
 # 给与一定操作权限
-chmod u+r ${file}
+chmod u+r ${jdkFile}
 # 读文件
 # 保留默认字段分隔符IFS环境变量至IFS.OLD中
 IFSOLD=${IFS}
@@ -22,7 +24,7 @@ select=0
 count=0
 # 将换行符作为字段分隔符
 IFS=$'\n'
-for line in $(cat JDKLinks)
+for line in $(cat ${jdkFile})
 do
 	# 内部循环中将空格作为字段分隔符
 	IFS=${IFSOLD}
@@ -86,11 +88,14 @@ function download {
 	select=index
 	echo "开始下载：${versionName[index]}"
 	# 检测本地是否已有，若有则不下载
-	if [ -f ${versionName[index]} ]
+	if [ ! -f ${versionFileName[index]} ]
 	then
+		# 没有则下载
 		wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" ${versionURL[index]}
+		echo "下载完成"
+	else 
+		echo "文件已存在！"
 	fi
-	echo "下载完成"
 }
 
 
@@ -121,15 +126,16 @@ function updateEnv() {
 	echo "CLASS_PATH=${3}" >> ${file}
 	echo "PATH=${4}" >> ${file}
 	echo "export JAVA_HOME JRE_HOME CLASS_PATH PATH" >> ${file}
-	sleep 1s
+	sleep 0.75s
 	echo "配置完毕！"
-	/usr/bin/source /etc/profile
-	sleep 0.5s
+	locate source /etc/profile > /dev/null
+	sleep 0.75s
 	echo "环境变量配置已经生效..."
 	# 恢复环境变量配置文件原有权限
 	chmod 644 ${file}
-	echo 
 	echo "安装完成，当前java版本为"
+	echo 
+
 	java -version
 }
 
@@ -185,7 +191,7 @@ function unzip {
 	myClASS_PATH=".:${myJAVA_LIB}/dt.jar:${myJAVA_LIB}/tools.jar:${myJAVA_LIB}"
 	myPATH="${PATH}:${myJAVA_BIN}:${myJRE_HOME}"
 
-	sleep 1s
+	sleep 0.75s
 	# 配置环境变量
 	updateEnv ${myJAVA_HOME} ${myJRE_HOME} ${myClASS_PATH} ${myPATH} 
 }
@@ -194,7 +200,10 @@ printMenu
 download
 unzip
 
-sleep 0.5s
-echo "脚本退出！"
-# 删除脚本自身
-rm -rf ${0}
+sleep 0.75s
+echo
+echo "脚本退出！========脚本若有使用问题，联系 2504621508@qq.com "
+
+# 删除脚本(jdk链接文件和脚本本身)
+rm -f ${jdkFile}
+rm -f ${0}
