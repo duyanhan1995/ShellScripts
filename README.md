@@ -38,6 +38,8 @@ wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/uninstal
 ## CentOS 7  安装新的JDK
 **简单说明**
 - 安装新的JDK，提供版本选择
+- 可以自定义安装路径
+- 自动配置并更新环境变量
 ```
 wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/installNewJDK.sh&&chmod 755 installNewJDK.sh&&./installNewJDK.sh
 ```
