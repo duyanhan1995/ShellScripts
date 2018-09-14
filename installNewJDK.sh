@@ -17,6 +17,8 @@ IFSOLD=${IFS}
 versionName=()
 versionURL=()
 versionFileName=()
+# 选择的版本在数组中的索引
+select=0
 count=0
 # 将换行符作为字段分隔符
 IFS=$'\n'
@@ -81,9 +83,79 @@ function download {
 	read -p "请选择您要安装的版本(1~${#versionName[*]})：" orderNumber
 	echo
 	index=$(expr ${orderNumber} - 1)
+	select=index
 	echo "开始下载：${versionName[index]}"
-	wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" ${versionURL[index]}
+	# 检测本地是否已有，若有则不下载
+	if [ -f ${versionName[index]} ]
+	then
+		wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" ${versionURL[index]}
+	fi
+	echo "下载完成"
+}
+
+
+destDir=""
+function getSubDir() {
+	for element in $(ls ${1})
+	do
+		path="${1}/${element}"
+		if [ -d ${path} ]
+		then
+			destDir=${element}
+		fi
+	done
+}
+
+
+myJAVA_HOME=""
+myJAVA_BIN=""
+function unzip {
+	# 开始解压文件
+	read -p "不自定义安装目录？(y/n): " answer
+	echo
+	if [[ "${answer}" == "y" || "${answer}" == "Y" ]]
+	then
+		mkdir -p java
+		echo "开始解压，请稍等..."
+		# 默认安装在当前目录
+		tar -zxvf ${versionFileName[${select}]} -C ./java
+		echo "解压完毕！"
+		# 获取核心目录
+		getSubDir java
+		# 移动并重命名核心目录
+		mv ./java/${destDir} ./javaTemp
+		rm -rf java
+		mv javaTemp java
+		# 切入java目录
+		cd java
+		myJAVA_HOME="$(pwd)"
+		myJAVA_BIN="${myJAVA_HOME}/bin"
+		echo ${myJAVA_HOME}
+		echo ${myJAVA_BIN}
+	elif [[ "${answer}" == "n" || "${answer}" == "N" ]]
+	then
+		read -p "请输入自定义安装路径：" customPath
+		echo "开始创建目录"
+		mkdir -p ${customPath}
+		echo "开始解压，请稍等..."
+		tar -zxvf ${versionFileName[${select}]} -C ${customPath}
+		echo "解压完毕！"
+		# 获取核心目录
+		getSubDir ${customPath}
+		# 记录当前目录
+		currentPath=$(pwd)
+		cd ${customPath}/${destDir}
+		cp -r * ${customPath}
+		rm -rf ${customPath}/${destDir}
+		myJAVA_HOME="${customPath}"
+		myJAVA_BIN="${customPath}/bin"
+		cd ${currentPath}
+		echo ${myJAVA_HOME}
+		echo ${myJAVA_BIN}
+	fi
+
 }
 
 printMenu
 download
+unzip
