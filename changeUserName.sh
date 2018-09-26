@@ -57,5 +57,6 @@ echo "添加新用户${newName}授权"
 sed -i "/root[ \t]*ALL=(ALL)[ \t]*ALL/ a ${newName}\tALL=(ALL) \tALL" /etc/sudoers
 # 移除/etc/sudoers可写权限
 chmod u-w /etc/sudoers
+echo "用户提权完成，用户名更换脚本执行完毕，退出！"
 # 删除此脚本自身
 rm -f ${0}
