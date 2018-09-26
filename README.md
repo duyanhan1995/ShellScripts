@@ -23,6 +23,7 @@ wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/nginx.sh
 ## CentOS 7  修改用户名
 **简单说明**
 - 修改用户名通过依次修改passwd、shadow、group、gshadow这四个文件以及用户主目录/home/用户
+- 用户名修改后，会自动对新用户名进行提权
 - 要求：使用root用户执行此脚本
 ```
 wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/changeUserName.sh&&chmod 755 changeUserName.sh&&./changeUserName.sh
