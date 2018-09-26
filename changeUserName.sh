@@ -48,5 +48,14 @@ do
 done
 mv /home/${oldName} /home/${newName}
 echo "更新用户主目录/home/${oldName}——>/home/${newName}"
+chmod u+w /etc/sudoers
+# 删除旧用户授权
+echo "删除旧用户${oldName}授权"
+sed -i "/${oldName}[ \t]*ALL=(ALL)[ \t]*ALL/d" /etc/sudoers
+# 添加新用户授权
+echo "添加新用户${newName}授权"
+sed -i "/root[ \t]*ALL=(ALL)[ \t]*ALL/ a ${newName}\tALL=(ALL) \tALL" /etc/sudoers
+# 移除/etc/sudoers可写权限
+chmod u-w /etc/sudoers
 # 删除此脚本自身
 rm -f ${0}
