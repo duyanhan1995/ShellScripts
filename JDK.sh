@@ -9,7 +9,3 @@ echo '#设置JDK环境变量' >> /etc/profile
 echo 'export JAVA_HOME=/usr/lib/jvm/jdk1.8.0_131' >> /etc/profile
 echo 'export CLASSPATH=$JAVA_HOME ' >> /etc/profile
 echo 'export PATH=$PATH:$JAVA_HOME/bin' >> /etc/profile
-sleep 2s
-source /etc/profile
-sleep 1s
-java -version
