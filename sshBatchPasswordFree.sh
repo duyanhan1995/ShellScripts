@@ -1,6 +1,8 @@
 #!/bin/bash
 #ssh批量免密脚本
 
+# 先安装expect工具
+yum install -y expect
 # 密钥对不存在则创建密钥
 [ ! -f /root/.ssh/id_rsa.pub ] && ssh-keygen -t rsa -P '' &>/dev/null  
 while read line;do
