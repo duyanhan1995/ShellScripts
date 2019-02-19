@@ -65,5 +65,5 @@ wget -c https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/sshBa
 - 安装条件：root权限
 
 ```
-wget -c https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/JDK.sh && chmod 755 JDK.sh && ./JDK.sh
+wget -c https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/JDK.sh && chmod 755 JDK.sh && source ./JDK.sh && java -version
 ```
