@@ -45,11 +45,14 @@ wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/uninstal
 wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/installNewJDK.sh&&chmod 755 installNewJDK.sh&&./installNewJDK.sh
 ```
 
-## CentOS 7 批量免密登录传输文件和执行目标脚本
+## CentOS 7 集群批量设置SSH免密登录
 **简单说明**
 - 要求root目录下有名为host_ip.txt文件
 - 要求具有root权限
 - host_ip.txt格式为三列：ip + 一个空格 + 用户名 + 一个空格 + 密码
+**适用场景**
+例如搭建Hadoop集群时，各机器间的访问，需要免密登录：
+可以将各机器的ip，用户名，密码按以上要求的格式放至host_ip.txt文件中，然后让他们同时执行以下脚本即可。
 ```
 wget -c https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/sshBatchPasswordFree.sh && chmod 755 sshBatchPasswordFree.sh && ./sshBatchPasswordFree.sh
 ```
