@@ -57,3 +57,13 @@ wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/installN
 ```
 wget -c https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/sshBatchPasswordFree.sh && chmod 755 sshBatchPasswordFree.sh && ./sshBatchPasswordFree.sh
 ```
+
+## CentOS 7 卸载OpenJDK，并安装OracleJDK  
+**简单说明**  
+- 安装路径为：/usr/lib/jvm/jdk1.8.0_131  
+- JDK版本为：jdk1.8.0_131  
+- 安装条件：root权限
+
+```
+wget -c https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/JDK.sh && chmod 755 JDK.sh && ./JDK.sh
+```
