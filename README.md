@@ -47,10 +47,9 @@ wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/installN
 
 ## CentOS 7 批量免密登录传输文件和执行目标脚本
 **简单说明**
-- 要求root目录下有名为host_ip.txt文件以及自定义名称的your_scripts.sh脚本
+- 要求root目录下有名为host_ip.txt文件
 - 要求具有root权限
 - host_ip.txt格式为三列：ip + 一个空格 + 用户名 + 一个空格 + 密码
-- 可重复执行？
 ```
-wget -c https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/%E6%89%B9%E9%87%8F%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%92%8C%E6%89%A7%E8%A1%8C%E8%84%9A%E6%9C%AC.sh && chmod 755 批量免密登陆和执行脚本.sh && ./批量免密登陆和执行脚本.sh
+wget -c https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/sshBatchPasswordFree.sh && chmod 755 sshBatchPasswordFree.sh && ./sshBatchPasswordFree.sh
 ```
