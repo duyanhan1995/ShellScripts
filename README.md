@@ -8,7 +8,7 @@
 - 自定义初始密码(大于等于4位)，并在/root/secret/mysql_initPassword文件中可以查看到
 - 安装命令如下：
 ```
-wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/mysql.sh&&chmod 755 mysql.sh&&./mysql.sh
+wget https://raw.githubusercontent.com/reki-cool/ShellScripts/master/mysql.sh&&chmod 755 mysql.sh&&./mysql.sh
 ```
 
 ## CentOS 7  安装  Nginx 1.13.8
@@ -17,7 +17,7 @@ wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/mysql.sh
 - 首页地址：http://IP:80
 - 安装命令如下：
 ```
-wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/nginx.sh&&chmod 755 nginx.sh&&./nginx.sh
+wget https://raw.githubusercontent.com/reki-cool/ShellScripts/master/nginx.sh&&chmod 755 nginx.sh&&./nginx.sh
 ```
 
 ## CentOS 7  修改用户名
@@ -26,14 +26,14 @@ wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/nginx.sh
 - 用户名修改后，会自动对新用户名进行提权
 - 要求：使用root用户执行此脚本
 ```
-wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/changeUserName.sh&&chmod 755 changeUserName.sh&&./changeUserName.sh
+wget https://raw.githubusercontent.com/reki-cool/ShellScripts/master/changeUserName.sh&&chmod 755 changeUserName.sh&&./changeUserName.sh
 ```
 
 ## CentOS 7  卸载原始自带的JDK
 **简单说明**
 - 卸载自带的opendJDK
 ```
-wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/uninstallOriginalJDK.sh&&chmod 755 uninstallOriginalJDK.sh&&./uninstallOriginalJDK.sh
+wget https://raw.githubusercontent.com/reki-cool/ShellScripts/master/uninstallOriginalJDK.sh&&chmod 755 uninstallOriginalJDK.sh&&./uninstallOriginalJDK.sh
 ```
 
 ## CentOS 7  安装新的JDK
@@ -42,7 +42,7 @@ wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/uninstal
 - 可以自定义安装路径
 - 自动配置并更新环境变量
 ```
-wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/installNewJDK.sh&&chmod 755 installNewJDK.sh&&./installNewJDK.sh
+wget https://raw.githubusercontent.com/reki-cool/ShellScripts/master/installNewJDK.sh&&chmod 755 installNewJDK.sh&&./installNewJDK.sh
 ```
 
 ## CentOS 7 集群批量设置SSH免密登录
@@ -55,7 +55,7 @@ wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/installN
 例如搭建Hadoop集群时，各机器间的访问，需要免密登录：  
 可以将各机器的ip，用户名，密码按以上要求的格式放至host_ip.txt文件中，然后让他们同时执行以下脚本即可。  
 ```
-wget -c https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/sshBatchPasswordFree.sh && chmod 755 sshBatchPasswordFree.sh && ./sshBatchPasswordFree.sh
+wget -c https://raw.githubusercontent.com/reki-cool/ShellScripts/master/sshBatchPasswordFree.sh && chmod 755 sshBatchPasswordFree.sh && ./sshBatchPasswordFree.sh
 ```
 
 ## CentOS 7 卸载OpenJDK，并安装OracleJDK  
@@ -65,5 +65,5 @@ wget -c https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/sshBa
 - 安装条件：root权限
 
 ```
-wget -c https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/JDK.sh && chmod 755 JDK.sh && source ./JDK.sh && java -version
+wget -c https://raw.githubusercontent.com/reki-cool/ShellScripts/master/JDK.sh && chmod 755 JDK.sh && source ./JDK.sh && java -version
 ```
