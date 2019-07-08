@@ -29,14 +29,14 @@ wget https://raw.githubusercontent.com/reki-cool/ShellScripts/master/nginx.sh&&c
 wget https://raw.githubusercontent.com/reki-cool/ShellScripts/master/changeUserName.sh&&chmod 755 changeUserName.sh&&./changeUserName.sh
 ```
 
-## CentOS 7  卸载原始自带的JDK
+## ~~CentOS 7  卸载原始自带的JDK~~
 **简单说明**
 - 卸载自带的opendJDK
 ```
 wget https://raw.githubusercontent.com/reki-cool/ShellScripts/master/uninstallOriginalJDK.sh&&chmod 755 uninstallOriginalJDK.sh&&./uninstallOriginalJDK.sh
 ```
 
-## CentOS 7  安装新的JDK
+## ~~CentOS 7  安装新的JDK~~
 **简单说明**
 - 安装新的JDK，提供版本选择
 - 可以自定义安装路径
@@ -44,6 +44,17 @@ wget https://raw.githubusercontent.com/reki-cool/ShellScripts/master/uninstallOr
 ```
 wget https://raw.githubusercontent.com/reki-cool/ShellScripts/master/installNewJDK.sh&&chmod 755 installNewJDK.sh&&./installNewJDK.sh
 ```
+
+## CentOS 7 卸载并安装JDK
+**简单说明**
+- 操作简单，默认安装路径/usr/lib/jvm
+- 自动卸载默认openjdk，并安装java8
+- 自动配置环境变量
+- 安装完毕，请手动刷新环境变量source /etc/profile  
+```
+wget https://raw.githubusercontent.com/reki-cool/ShellScripts/master/JDK.sh && chmod 755 JDK.sh && ./JDK.sh
+```
+
 
 ## CentOS 7 集群批量设置SSH免密登录
 **简单说明**
