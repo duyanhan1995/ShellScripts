@@ -1,4 +1,4 @@
-jdk8（64位） https://download.oracle.com/otn-pub/java/jdk/8u191-b12/2787e4a523244c269598db4e85c51e0c/jdk-8u191-linux-x64.tar.gz
-jdk8（32位） http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-i586.tar.gz
-jdk7（64位） http://download.oracle.com/otn/java/jdk/7u80-b15/jdk-7u80-linux-x64.tar.gz?AuthParam=1536846141_2138426beef6f677cf8e9b36a9cf2aff
-jdk7（32位） http://download.oracle.com/otn/java/jdk/7u80-b15/jdk-7u80-linux-i586.tar.gz?AuthParam=1536846289_49b5cb8401f6e3d0842fe2760592aff1
+jdk8（64位） https://github.com/frekele/oracle-java/releases/download/8u212-b10/jdk-8u212-linux-x64.tar.gz
+jdk8（32位） https://github.com/frekele/oracle-java/releases/download/8u212-b10/jdk-8u212-linux-i586.tar.gz
+jdk7（64位） https://github.com/frekele/oracle-java/releases/download/7u80-b15/jdk-7u80-linux-x64.tar.gz
+jdk7（32位） https://github.com/frekele/oracle-java/releases/download/7u80-b15/jre-7u80-linux-i586.tar.gz
