@@ -1,7 +1,7 @@
 #!/bin/bash
 # mysql.sh
-wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/mysql_configure.sh
-wget https://raw.githubusercontent.com/duyanhan1995/ShellScripts/master/mysql_download.sh
+wget https://raw.githubusercontent.com/reki-cool/ShellScripts/master/mysql_configure.sh
+wget https://raw.githubusercontent.com/reki-cool/ShellScripts/master/mysql_download.sh
 chmod 755 mysql_configure.sh mysql_download.sh
 ./mysql_download.sh
 ./mysql_configure.sh
