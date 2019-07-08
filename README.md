@@ -43,16 +43,16 @@ wget https://raw.githubusercontent.com/reki-cool/ShellScripts/master/uninstallOr
 - 自动配置并更新环境变量
 ```
 wget https://raw.githubusercontent.com/reki-cool/ShellScripts/master/installNewJDK.sh&&chmod 755 installNewJDK.sh&&./installNewJDK.sh
-```
+```  
 
-## CentOS 7 卸载并安装JDK
-**简单说明**
-- 操作简单，默认安装路径/usr/lib/jvm
-- 自动卸载默认openjdk，并安装java8
-- 自动配置环境变量
-- 安装完毕，请手动刷新环境变量source /etc/profile  
+## CentOS 7 卸载OpenJDK，并安装Oracle JDK 8 
+**简单说明**  
+- 安装路径为：/usr/lib/jvm/jdk1.8.0_131  
+- JDK版本为：jdk1.8.0_131  
+- 安装条件：root权限
+
 ```
-wget https://raw.githubusercontent.com/reki-cool/ShellScripts/master/JDK.sh && chmod 755 JDK.sh && ./JDK.sh
+wget -c https://raw.githubusercontent.com/reki-cool/ShellScripts/master/JDK.sh && chmod 755 JDK.sh && source ./JDK.sh && java -version
 ```
 
 
@@ -69,12 +69,3 @@ wget https://raw.githubusercontent.com/reki-cool/ShellScripts/master/JDK.sh && c
 wget -c https://raw.githubusercontent.com/reki-cool/ShellScripts/master/sshBatchPasswordFree.sh && chmod 755 sshBatchPasswordFree.sh && ./sshBatchPasswordFree.sh
 ```
 
-## CentOS 7 卸载OpenJDK，并安装OracleJDK  
-**简单说明**  
-- 安装路径为：/usr/lib/jvm/jdk1.8.0_131  
-- JDK版本为：jdk1.8.0_131  
-- 安装条件：root权限
-
-```
-wget -c https://raw.githubusercontent.com/reki-cool/ShellScripts/master/JDK.sh && chmod 755 JDK.sh && source ./JDK.sh && java -version
-```
